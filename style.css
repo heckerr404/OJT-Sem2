@@ -1,7 +1,6 @@
 /* 
-  ========================================================================
   1. GLOBAL RESET
-  ========================================================================
+
   We remove default margins and paddings so that all browsers display 
   the webpage in the exact same way.
 */
@@ -17,9 +16,9 @@ html {
 }
 
 /* 
-  ========================================================================
+
   2. BASE PAGE STYLES (Light Mode by default)
-  ========================================================================
+
 */
 body {
     background-color: #ffffff; /* White page background */
@@ -30,9 +29,9 @@ body {
 }
 
 /* 
-  ========================================================================
+ 
   3. DARK MODE STYLES
-  ========================================================================
+
   When Dark Mode is active, the body has the "dark" class.
   These rules override the standard colors.
 */
@@ -40,12 +39,7 @@ body.dark {
     background-color: #121824; /* Dark blue-grey page background */
     color: #ffffff;            /* Solid white text color */
 }
-
-/* 
-  ========================================================================
-  4. HEADER & NAVIGATION
-  ========================================================================
-*/
+  /* 4. HEADER & NAVIGATION */
 header {
     position: fixed;         /* Sticks the header to the top of the screen */
     top: 0;
@@ -109,11 +103,7 @@ body.dark #theme-btn:hover {
     background-color: #0ea5e9;
 }
 
-/* 
-  ========================================================================
-  5. MAIN PAGE LAYOUT
-  ========================================================================
-*/
+/*5. MAIN PAGE LAYOUT*/
 main {
     max-width: 800px; /* Restricts the main area width for readability */
     margin: 20px auto; /* Centers the content block and adds top/bottom margins */
@@ -140,11 +130,7 @@ body.dark h2 {
     border-bottom: 2px solid #334155;
 }
 
-/* 
-  ========================================================================
-  6. SKILLS SECTION
-  ========================================================================
-*/
+/*6. SKILLS SECTION*/
 .skills-list {
     display: flex;         /* Lays pills out in a row */
     justify-content: center; /* Centers pills horizontally */
@@ -168,11 +154,7 @@ body.dark .skill-tag {
     color: #f87171;            /* Light red font color in dark mode */
 }
 
-/* 
-  ========================================================================
-  7. PROJECTS GRID SECTION
-  ========================================================================
-*/
+/*  7. PROJECTS GRID SECTION*/
 .projects-grid {
     display: grid;
     /* Automatically creates columns that are at least 250px wide */
@@ -223,11 +205,7 @@ body.dark .project-card a {
     color: #38bdf8; /* Sky blue colored link in dark mode */
 }
 
-/* 
-  ========================================================================
-  8. CONTACT FORM SECTION
-  ========================================================================
-*/
+/* 8. CONTACT FORM SECTION*/
 .form-container {
     max-width: 500px;
     margin: 0 auto;
@@ -332,11 +310,7 @@ body.dark #submit-btn:hover {
     background-color: #e2e8f0;
 }
 
-/* 
-  ========================================================================
-  9. FOOTER SECTION
-  ========================================================================
-*/
+/* 9. FOOTER SECTION*/
 footer {
     text-align: center;
     padding: 20px;
@@ -355,11 +329,7 @@ footer p {
     opacity: 0.7;
 }
 
-/* 
-  ========================================================================
-  10. MOBILE RESPONSIVENESS
-  ========================================================================
-*/
+/*  10. MOBILE RESPONSIVENESS*/
 @media (max-width: 500px) {
     /* Stack elements inside grid vertically on narrow screens */
     .projects-grid {
