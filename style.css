@@ -21,39 +21,40 @@ html {
 
 */
 body {
-    background-color: #ffffff; /* White page background */
-    color: #222222;            /* Dark grey text color */
+    background-color: #f0f4ff;      /* Soft lavender page background */
+    color: #222222;                 /* Dark grey text color */
     font-family: Arial, sans-serif; /* Basic standard font */
-    line-height: 1.6;          /* Adds comfortable space between lines of text */
-    padding-top: 80px;         /* Adds space at top so fixed header doesn't cover content */
+    line-height: 1.6;               /* Adds comfortable space between lines of text */
+    padding-top: 80px;              /* Adds space at top so fixed header doesn't cover content */
 }
 
 /* 
- 
+
   3. DARK MODE STYLES
 
   When Dark Mode is active, the body has the "dark" class.
   These rules override the standard colors.
 */
 body.dark {
-    background-color: #121824; /* Dark blue-grey page background */
+    background-color: #0f0a1e; /* Deep dark purple page background */
     color: #ffffff;            /* Solid white text color */
 }
-  /* 4. HEADER & NAVIGATION */
+
+/* 4. HEADER & NAVIGATION */
 header {
     position: fixed;         /* Sticks the header to the top of the screen */
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #f8fafc; /* Very light grey header background */
-    border-bottom: 1px solid #e2e8f0; /* Soft border line under the header */
-    z-index: 1000;           /* Makes sure the header stays on top of other content */
+    background-color: #6c3aff; /* Vibrant purple header background */
+    border-bottom: 1px solid #5b21b6; /* Slightly darker purple border under the header */
+    z-index: 1000;            /* Makes sure the header stays on top of other content */
 }
 
 /* Change header color in Dark Mode */
 body.dark header {
-    background-color: #1e293b; /* Darker blue-grey background */
-    border-bottom: 1px solid #334155;
+    background-color: #0d0d14; /* Deep near-black header in dark mode */
+    border-bottom: 1px solid #2a2a3e;
 }
 
 /* Flexbox container to align title and button side-by-side */
@@ -66,23 +67,36 @@ body.dark header {
     padding: 15px 20px;
 }
 
+/* Logo — "Dev" is white, "Dynasty" is blue */
 .logo {
     font-size: 20px;
     font-weight: bold;
-    color: #2563eb; /* Blue logo text color */
+    color: #ffffff;      /* "Dev" part is plain white */
+    letter-spacing: 1px;
 }
 
-/* Dark Mode logo color */
+/* "Dynasty" part wrapped in a span — gets the blue color */
+.logo span {
+   font-size: 23px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:black; /* Bright blue matching your screenshot */
+}
+
+/* Dark Mode logo — keep white for "Dev", softer blue for "Dynasty" */
 body.dark .logo {
-    color: #38bdf8; /* Light blue logo text color in dark mode */
+    color: #ffffff;
+}
+
+body.dark .logo span {
+    color: #6c8fff; /* Slightly softer blue on dark background */
 }
 
 /* Dark Mode toggle button */
 #theme-btn {
-    background-color: #2563eb; /* Blue button background */
-    color: #ffffff;            /* White text inside button */
+    background-color: #ffffff; /* White button stands out on purple header */
+    color: #6c3aff;            /* Purple text inside button */
     border: none;
-    border-radius: 6px;        /* Rounded corners */
+    border-radius: 20px;       /* Pill-shaped rounded corners */
     padding: 8px 16px;
     font-size: 14px;
     font-weight: bold;
@@ -90,20 +104,20 @@ body.dark .logo {
 }
 
 #theme-btn:hover {
-    background-color: #1d4ed8; /* Darker blue when hovered */
+    background-color: #ede9ff; /* Very light purple tint when hovered */
 }
 
 /* Change button style in Dark Mode */
 body.dark #theme-btn {
-    background-color: #38bdf8; /* Lighter sky blue for dark mode visibility */
-    color: #121824;            /* Dark text inside button for contrast */
+    background-color: #4c1d95; /* Dark purple button in dark mode */
+    color: #e9d5ff;            /* Light lavender text for contrast */
 }
 
 body.dark #theme-btn:hover {
-    background-color: #0ea5e9;
+    background-color: #5b21b6;
 }
 
-/*5. MAIN PAGE LAYOUT*/
+/* 5. MAIN PAGE LAYOUT */
 main {
     max-width: 800px; /* Restricts the main area width for readability */
     margin: 20px auto; /* Centers the content block and adds top/bottom margins */
@@ -115,46 +129,46 @@ section {
     margin-bottom: 50px;
 }
 
-/* Section titles styling with clean font colors */
+/* Section titles styling with purple font colors */
 h2 {
     font-size: 28px;
     text-align: center;
-    color: #2563eb; /* Blue text color for section titles */
+    color: #6c3aff;                   /* Purple text color for section titles */
     margin-bottom: 25px;
-    border-bottom: 2px solid #e2e8f0; /* Simple line under heading */
+    border-bottom: 2px solid #c4b5fd; /* Soft purple line under heading */
     padding-bottom: 8px;
 }
 
 body.dark h2 {
-    color: #38bdf8; /* Light blue text color in dark mode */
-    border-bottom: 2px solid #334155;
+    color: #c4b5fd;                   /* Light purple text in dark mode */
+    border-bottom: 2px solid #4c1d95;
 }
 
-/*6. SKILLS SECTION*/
+/* 6. SKILLS SECTION */
 .skills-list {
-    display: flex;         /* Lays pills out in a row */
+    display: flex;           /* Lays pills out in a row */
     justify-content: center; /* Centers pills horizontally */
-    flex-wrap: wrap;       /* Allows pills to wrap onto new line if screen is narrow */
-    gap: 10px;             /* Space between pills */
+    flex-wrap: wrap;         /* Allows pills to wrap onto new line if screen is narrow */
+    gap: 10px;               /* Space between pills */
 }
 
 .skill-tag {
-    background-color: #fef2f2; /* Soft light red background */
-    border: 1px solid #fee2e2;
+    background-color: #ede9ff; /* Soft light purple background */
+    border: 1px solid #c4b5fd;
     border-radius: 20px;       /* Pill shape */
     padding: 8px 16px;
     font-size: 14px;
     font-weight: bold;
-    color: #dc2626;            /* Red font color for skill tags */
+    color: #5b21b6;            /* Deep purple font color for skill tags */
 }
 
 body.dark .skill-tag {
-    background-color: #7f1d1d; /* Dark red background for dark mode */
-    border-color: #991b1b;
-    color: #f87171;            /* Light red font color in dark mode */
+    background-color: #2e1065; /* Dark purple background for dark mode */
+    border-color: #4c1d95;
+    color: #c4b5fd;            /* Light purple font color in dark mode */
 }
 
-/*  7. PROJECTS GRID SECTION*/
+/* 7. PROJECTS GRID SECTION */
 .projects-grid {
     display: grid;
     /* Automatically creates columns that are at least 250px wide */
@@ -163,9 +177,9 @@ body.dark .skill-tag {
 }
 
 .project-card {
-    background-color: #f8fafc; /* Very light grey card background */
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
+    background-color: #ffffff; /* White card background */
+    border: 1px solid #ddd6fe; /* Soft purple border around each card */
+    border-radius: 10px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -173,18 +187,18 @@ body.dark .skill-tag {
 }
 
 body.dark .project-card {
-    background-color: #1e293b;
-    border-color: #334155;
+    background-color: #1a0a3e; /* Very dark purple card background in dark mode */
+    border-color: #4c1d95;
 }
 
 .project-card h3 {
     font-size: 18px;
     margin-bottom: 10px;
-    color: #1e3a8a; /* Dark blue project name font color */
+    color: #4f46e5; /* Indigo-purple project name font color */
 }
 
 body.dark .project-card h3 {
-    color: #7dd3fc; /* Light sky blue project name font color in dark mode */
+    color: #a78bfa; /* Medium light purple project name in dark mode */
 }
 
 .project-card p {
@@ -195,29 +209,29 @@ body.dark .project-card h3 {
 
 /* Links inside cards */
 .project-card a {
-    color: #2563eb; /* Blue colored link font */
+    color: #7c3aed;             /* Purple colored link font */
     text-decoration: underline; /* Standard underline for links */
     font-weight: bold;
     font-size: 14px;
 }
 
 body.dark .project-card a {
-    color: #38bdf8; /* Sky blue colored link in dark mode */
+    color: #c4b5fd; /* Light purple colored link in dark mode */
 }
 
-/* 8. CONTACT FORM SECTION*/
+/* 8. CONTACT FORM SECTION */
 .form-container {
     max-width: 500px;
     margin: 0 auto;
-    background-color: #f8fafc;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
+    background-color: #ffffff;
+    border: 1px solid #ddd6fe; /* Soft purple border around the form */
+    border-radius: 10px;
     padding: 25px;
 }
 
 body.dark .form-container {
-    background-color: #1e293b;
-    border-color: #334155;
+    background-color: #1a0a3e;
+    border-color: #4c1d95;
 }
 
 .form-group {
@@ -232,21 +246,21 @@ body.dark .form-container {
 }
 
 /* Input elements */
-.form-group input, 
+.form-group input,
 .form-group textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #c4b5fd;  /* Soft purple border on inputs */
     border-radius: 6px;
     font-size: 14px;
-    background-color: #ffffff;
+    background-color: #faf5ff;  /* Very light lavender input background */
     color: #222222;
 }
 
 body.dark .form-group input,
 body.dark .form-group textarea {
-    border-color: #475569;
-    background-color: #121824;
+    border-color: #4c1d95;
+    background-color: #0f0a1e;
     color: #ffffff;
 }
 
@@ -254,12 +268,12 @@ body.dark .form-group textarea {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #2563eb;
+    border-color: #7c3aed; /* Bright purple border highlight on focus */
 }
 
 body.dark .form-group input:focus,
 body.dark .form-group textarea:focus {
-    border-color: #38bdf8;
+    border-color: #a78bfa;
 }
 
 /* Validation helper text classes */
@@ -288,7 +302,7 @@ body.dark .form-group textarea:focus {
 #submit-btn {
     width: 100%;
     padding: 12px;
-    background-color: #222222;
+    background-color: #6c3aff; /* Vibrant purple button */
     color: #ffffff;
     border: none;
     border-radius: 6px;
@@ -298,38 +312,38 @@ body.dark .form-group textarea:focus {
 }
 
 #submit-btn:hover {
-    background-color: #000000;
+    background-color: #5b21b6; /* Darker purple when hovered */
 }
 
 body.dark #submit-btn {
-    background-color: #ffffff;
-    color: #121824;
+    background-color: #7c3aed;
+    color: #ffffff;
 }
 
 body.dark #submit-btn:hover {
-    background-color: #e2e8f0;
+    background-color: #6d28d9;
 }
 
-/* 9. FOOTER SECTION*/
+/* 9. FOOTER SECTION */
 footer {
     text-align: center;
     padding: 20px;
-    border-top: 1px solid #cbd5e1;
-    background-color: #f8fafc;
+    border-top: 1px solid #ddd6fe;
+    background-color: #6c3aff; /* Matching purple footer background */
     margin-top: 50px;
 }
 
 body.dark footer {
-    background-color: #1e293b;
-    border-top: 1px solid #334155;
+    background-color: #2e1065;
+    border-top: 1px solid #4c1d95;
 }
 
 footer p {
     font-size: 14px;
-    opacity: 0.7;
+    color: #e9d5ff; /* Soft lavender text on purple footer */
 }
 
-/*  10. MOBILE RESPONSIVENESS*/
+/* 10. MOBILE RESPONSIVENESS */
 @media (max-width: 500px) {
     /* Stack elements inside grid vertically on narrow screens */
     .projects-grid {

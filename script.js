@@ -1,10 +1,10 @@
 // --- 1. Light and Dark Mode Toggle ---
 // Get the button element from the HTML
-var themeBtn = document.getElementById("theme-btn");
+let themeBtn = document.getElementById("theme-btn");
 
 // Function to switch between dark and light themes
 function toggleTheme() {
-    var bodyElement = document.body;
+    let bodyElement = document.body;
     
     // Toggle the class "dark" on the body element
     bodyElement.classList.toggle("dark");
@@ -23,8 +23,8 @@ themeBtn.onclick = toggleTheme;
 
 // --- 2. Contact Form Validation ---
 // Get the form element and the success message container
-var contactForm = document.getElementById("contact-form");
-var successMsg = document.getElementById("form-success");
+let contactForm = document.getElementById("contact-form");
+let successMsg = document.getElementById("form-success");
 
 // Function to check if the input fields are filled out correctly
 function validateForm(event) {
@@ -32,17 +32,17 @@ function validateForm(event) {
     event.preventDefault();
 
     // Get the input fields
-    var nameInput = document.getElementById("user-name");
-    var emailInput = document.getElementById("user-email");
-    var messageInput = document.getElementById("user-message");
+    let nameInput = document.getElementById("user-name");
+    let emailInput = document.getElementById("user-email");
+    let messageInput = document.getElementById("user-message");
 
     // Get the error message text blocks
-    var nameError = document.getElementById("name-error");
-    var emailError = document.getElementById("email-error");
-    var messageError = document.getElementById("message-error");
+    let nameError = document.getElementById("name-error");
+    let emailError = document.getElementById("email-error");
+    let messageError = document.getElementById("message-error");
 
     // Assume the form is correct to start with
-    var isValid = true;
+    let isValid = true;
 
     // Check Name: if empty, show error, else hide it
     if (nameInput.value.trim() === "") {
