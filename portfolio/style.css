@@ -1,0 +1,148 @@
+* { /* Universal selector targets all elements on the page */
+  box-sizing: border-box; /* Includes padding and borders in the calculated width and height of all elements */
+} /* End of universal selector rules */
+body { /* Targets the body element representing the entire page context */
+  background-color: #ffffff; /* Sets the webpage background color to pure white */
+  color: #333333; /* Sets the default text color to a soft dark grey for readability */
+  font-family: Arial, sans-serif; /* Sets the default font to Arial with standard sans-serif fallbacks */
+  max-width: 700px; /* Restricts the maximum width of the layout container to 700 pixels */
+  margin: 0 auto; /* Centers the main layout container horizontally within the viewport window */
+  padding: 20px; /* Adds 20 pixels of internal spacing around the content area boundaries */
+} /* End of body container selector rules */
+.section { /* Targets all block element containers with the section class name */
+  background-color: #f9f9f9; /* Sets the background of each section to a clean light grey */
+  padding: 15px; /* Adds 15 pixels of space inside each section container */
+  border-radius: 8px; /* Rounds the corners of each section container box by 8 pixels */
+  border: 1px solid #e0e0e0; /* Adds a solid thin light grey border outline around sections */
+  margin-bottom: 15px; /* Creates 15 pixels of space between adjacent section containers */
+} /* End of section container selector rules */
+h1 { /* Targets the main h1 heading element on the page */
+  text-align: center; /* Centers the main heading text horizontally */
+  color: #1a202c; /* Sets the h1 heading color to a deep charcoal blue */
+  margin-bottom: 20px; /* Adds 20 pixels of space underneath the main title heading */
+} /* End of h1 selector rules */
+h2 { /* Targets all h2 headings which are used for section titles */
+  font-weight: bold; /* Boldens the font weight of the section headings */
+  font-size: 16px; /* Sets the section heading font size to exactly 16 pixels */
+  border-bottom: 2px solid #e2e8f0; /* Adds a thin solid light grey border line below headings */
+  margin-top: 0px; /* Removes default browser top margin to align with section padding */
+  margin-bottom: 10px; /* Adds 10 pixels of margin spacing beneath the heading underline */
+  padding-bottom: 5px; /* Adds 5 pixels of padding space above the underline border */
+  color: #2d3748; /* Sets the section title text color to dark slate grey */
+} /* End of h2 selector rules */
+label { /* Targets all label text elements accompanying form input fields */
+  display: block; /* Forces label text to render on its own block line */
+  font-size: 13px; /* Sets the font size of form label labels to 13 pixels */
+  color: #666666; /* Applies a medium grey color to label texts to distinguish them */
+  margin-bottom: 4px; /* Adds 4 pixels of bottom margin to separate label from input */
+} /* End of label selector rules */
+input[type="text"], /* Targets all standard text input boxes in the form */
+input[type="email"], /* Targets email specific input validation fields in the form */
+textarea { /* Targets multi-line textarea inputs used for long text entries */
+  width: 100%; /* Makes all inputs and textareas expand to fill 100 percent width */
+  padding: 8px; /* Adds 8 pixels of internal padding space inside the input elements */
+  border: 1px solid #999999; /* Sets a solid medium grey border around form input components */
+  border-radius: 4px; /* Rounds the corners of form inputs and textareas by 4 pixels */
+  margin-bottom: 10px; /* Adds 10 pixels of spacing below each individual input container */
+  font-family: inherit; /* Forces input text to inherit the body's Arial font style */
+  font-size: 14px; /* Sets the input text font size to a readable 14 pixels */
+} /* End of input and textarea default styles */
+input[type="text"]:focus, /* Targets text inputs when clicked, selected, or active */
+input[type="email"]:focus, /* Targets email inputs when clicked, selected, or active */
+textarea:focus { /* Targets textareas when clicked, selected, or active */
+  border-color: #007bff; /* Changes the border outline color to bright blue when focused */
+  outline: none; /* Disables default browser focus glow outline styles */
+} /* End of focus state rules for input fields */
+.row { /* Targets layout containers designed to display children in rows */
+  display: flex; /* Uses CSS flexible box model to place child elements in a row */
+  gap: 10px; /* Adds a gap spacing of exactly 10 pixels between row children */
+} /* End of row layout styles */
+.row > * { /* Targets any direct child element wrapped inside a row layout */
+  flex: 1; /* Instructs each child to grow and shrink equally to share row space */
+} /* End of row child element styles */
+#previewBtn { /* Targets the specific preview button element using its unique ID */
+  background-color: #007bff; /* Sets the preview button background to vibrant blue color */
+  color: #ffffff; /* Sets the text color of the preview button to pure white */
+  padding: 10px 20px; /* Adds 10 pixels vertical and 20 pixels horizontal padding space */
+  border-radius: 4px; /* Rounds the corners of the preview button by 4 pixels */
+  cursor: pointer; /* Displays a pointer hand cursor when hovering over the button */
+  border: none; /* Removes default border styles around the preview button element */
+  font-size: 14px; /* Sets the text size of the preview button to 14 pixels */
+  font-weight: bold; /* Boldens the text of the preview button for prominence */
+} /* End of previewBtn selector rules */
+#previewBtn:hover { /* Targets the preview button state when hovered by mouse */
+  background-color: #0056b3; /* Darkens the blue color of the preview button on hover */
+} /* End of previewBtn hover rules */
+#downloadBtn { /* Targets the specific download button element using its unique ID */
+  background-color: #28a745; /* Sets the download button background to vibrant green color */
+  color: #ffffff; /* Sets the text color of the download button to pure white */
+  padding: 10px 20px; /* Adds 10 pixels vertical and 20 pixels horizontal padding space */
+  border-radius: 4px; /* Rounds the corners of the download button by 4 pixels */
+  cursor: pointer; /* Displays a pointer hand cursor when hovering over the button */
+  border: none; /* Removes default border styles around the download button element */
+  font-size: 14px; /* Sets the text size of the download button to 14 pixels */
+  font-weight: bold; /* Boldens the text of the download button for prominence */
+} /* End of downloadBtn selector rules */
+#downloadBtn:hover { /* Targets the download button state when hovered by mouse */
+  background-color: #218838; /* Darkens the green color of the download button on hover */
+} /* End of downloadBtn hover rules */
+#preview { /* Targets the preview rendering container using its unique ID */
+  margin-top: 20px; /* Adds 20 pixels of margin spacing above the preview block */
+  display: none; /* Hides the preview block container by default on load */
+  border: 2px dashed #cccccc; /* Adds a dashed grey border outline to frame the preview */
+  padding: 20px; /* Adds 20 pixels of internal padding spacing around the preview data */
+  border-radius: 8px; /* Rounds the outer border corners of the preview container by 8px */
+  background-color: #ffffff; /* Sets the preview area background to clean solid white */
+} /* End of preview block styling rules */
+#preview.show { /* Targets the preview container when it is active with the class show */
+  display: block; /* Forces the preview block container to be displayed as block */
+} /* End of show state rules for the preview block */
+.preview-name { /* Targets the large name heading inside the generated preview */
+  font-size: 26px; /* Sets the font size of the name title to 26 pixels */
+  font-weight: bold; /* Makes the heading name text bold for strong emphasis */
+  margin-top: 0px; /* Removes default h1 top margin to align with container padding */
+  margin-bottom: 5px; /* Adds 5 pixels of bottom spacing below the header name */
+  color: #111111; /* Applies a rich deep black color to the heading text */
+} /* End of preview name title rules */
+.preview-role { /* Targets the user's role subtitle inside the generated preview */
+  font-size: 18px; /* Sets the subtitle role font size to exactly 18 pixels */
+  color: #666666; /* Applies a medium dark grey color to the job role description */
+  margin-bottom: 10px; /* Adds 10 pixels of margin space underneath the job role line */
+} /* End of preview role subtitle rules */
+.preview-contact { /* Targets the user's contact information text line in the preview */
+  font-size: 13px; /* Sets the font size of the contact info text to 13 pixels */
+  color: #777777; /* Applies a soft light grey color to the contact information text */
+  margin-bottom: 20px; /* Adds 20 pixels of margin space underneath the contact details line */
+  border-bottom: 1px solid #e2e8f0; /* Adds a thin border divider line under contact information */
+  padding-bottom: 10px; /* Adds 10 pixels of padding space above the divider border line */
+} /* End of preview contact text rules */
+.preview-section-title { /* Targets the header titles of sections within the preview container */
+  font-size: 18px; /* Sets the font size of the preview section titles to 18 pixels */
+  border-bottom: 2px solid #cccccc; /* Adds a solid medium grey border line below section title */
+  padding-bottom: 4px; /* Adds 4 pixels of padding space above the section title underline */
+  margin-top: 20px; /* Adds 20 pixels of vertical space above each section title */
+  margin-bottom: 10px; /* Adds 10 pixels of space below each preview section title line */
+  color: #222222; /* Applies a dark charcoal grey color to preview section titles */
+  font-weight: bold; /* Boldens the font weight of the preview section titles */
+} /* End of preview section title rules */
+.preview-skills { /* Targets the container grouping all skills boxes in the preview */
+  display: flex; /* Uses flexbox layout to display skills in a row direction */
+  flex-wrap: wrap; /* Allows skills blocks to wrap to a new line when needed */
+  gap: 8px; /* Adds 8 pixels of space between adjacent skill badge blocks */
+  margin-bottom: 15px; /* Adds 15 pixels of margin spacing beneath the skills collection */
+} /* End of preview skills container rules */
+.preview-skill-badge { /* Targets individual skill tag boxes within the skills list */
+  background-color: #e2e8f0; /* Sets a light slate grey background color for the badge */
+  color: #4a5568; /* Sets a dark slate text color for the skill badge text */
+  padding: 5px 10px; /* Adds 5 pixels vertical and 10 pixels horizontal padding space */
+  border-radius: 15px; /* Rounds badge border corners by 15px to make pill shapes */
+  font-size: 12px; /* Sets the font size of the skill label text to 12 pixels */
+  font-weight: bold; /* Boldens the skill badge text for a clean badge design */
+} /* End of preview skill badge box rules */
+.preview-project-card { /* Targets the wrapper container for individual project displays */
+  background-color: #f3f4f6; /* Sets a light background shade for project details blocks */
+  padding: 12px; /* Adds 12 pixels of spacing inside the project detail card borders */
+  border-radius: 6px; /* Rounds the corners of the project wrapper box by 6 pixels */
+  margin-bottom: 10px; /* Adds 10 pixels of bottom margin below the project card container */
+  border: 1px solid #e5e7eb; /* Adds a thin solid light grey border outline around cards */
+} /* End of preview project card container rules */
