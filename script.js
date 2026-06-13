@@ -77,5 +77,5 @@ function validateForm(event) {
     }
 }
 
-// When the form is submitted, run the validateForm function
+// When the form is submitted, run the validate form function
 contactForm.onsubmit = validateForm;
