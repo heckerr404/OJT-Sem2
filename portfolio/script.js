@@ -1,100 +1,211 @@
-function generatePortfolioHTML() { /* Function to read inputs and generate the portfolio HTML string */
-  var name = document.getElementById("fullName").value; /* Read the Full Name value */
-  var role = document.getElementById("jobRole").value; /* Read the Job Role value */
-  var email = document.getElementById("email").value; /* Read the Email value */
-  var phone = document.getElementById("phone").value; /* Read the Phone value */
-  var city = document.getElementById("city").value; /* Read the City value */
-  var linkedin = document.getElementById("linkedinUrl").value; /* Read the LinkedIn URL value */
-  var github = document.getElementById("githubUrl").value; /* Read the GitHub URL value */
-  var about = document.getElementById("aboutMe").value; /* Read the About Me textarea value */
-  var degree = document.getElementById("degree").value; /* Read the Degree name value */
-  var college = document.getElementById("college").value; /* Read the College name value */
-  var year = document.getElementById("passingYear").value; /* Read the Year of passing value */
-  var cgpa = document.getElementById("cgpaOrPercentage").value; /* Read the CGPA or percentage value */
-  var skillsRaw = document.getElementById("skills").value; /* Read the comma-separated skills value */
-  var p1Title = document.getElementById("project1Title").value; /* Read the first project's title */
-  var p1Desc = document.getElementById("project1Desc").value; /* Read the first project's description */
-  var p2Title = document.getElementById("project2Title").value; /* Read the second project's title */
-  var p2Desc = document.getElementById("project2Desc").value; /* Read the second project's description */
-  var p3Title = document.getElementById("project3Title").value; /* Read the third project's title */
-  var p3Desc = document.getElementById("project3Desc").value; /* Read the third project's description */
-  var company = document.getElementById("companyName").value; /* Read the Company Name value */
-  var expRole = document.getElementById("experienceRole").value; /* Read the Experience Role value */
-  var expDuration = document.getElementById("experienceDuration").value; /* Read the Experience Duration value */
-  var work = document.getElementById("workDone").value; /* Read the Work Done textarea value */
-  var certsRaw = document.getElementById("certifications").value; /* Read the Certifications textarea value */
-  var html = ""; /* Initialize the output HTML string variable */
-  html += "<h1 class='preview-name'>" + name + "</h1>"; /* Add the Name as a heading to the HTML */
-  html += "<div class='preview-role'>" + role + "</div>"; /* Add the Job Role below the name */
-  html += "<div class='preview-contact'>Email: " + email + " | Phone: " + phone + " | City: " + city + " | LinkedIn: " + linkedin + " | GitHub: " + github + "</div>"; /* Add the contact line */
-  html += "<h2 class='preview-section-title'>About Me</h2>"; /* Add the About Me section heading */
-  html += "<p>" + about + "</p>"; /* Add the About Me text content */
-  html += "<h2 class='preview-section-title'>Education</h2>"; /* Add the Education section heading */
-  html += "<p><strong>" + degree + "</strong> from " + college + " (" + year + ") - CGPA/Percentage: " + cgpa + "</p>"; /* Add the education details */
-  html += "<h2 class='preview-section-title'>Skills</h2>"; /* Add the Skills section heading */
-  html += "<div class='preview-skills'>"; /* Add the opening container tag for skill badges */
-  var skillsArray = skillsRaw.split(","); /* Split the comma-separated skills into an array */
-  skillsArray.forEach(function(skill) { /* Loop through each skill in the array using forEach */
-    html += "<span class='preview-skill-badge'>" + skill + "</span>"; /* Wrap each skill directly inside a badge span tag */
-  }); /* End of skills array loop */
-  html += "</div>"; /* Close the skills container tag */
-  html += "<h2 class='preview-section-title'>Projects</h2>"; /* Add the Projects section heading */
-  html += "<div class='preview-project-card'><h3>" + p1Title + "</h3><p>" + p1Desc + "</p></div>"; /* Add the first project card with title and description */
-  html += "<div class='preview-project-card'><h3>" + p2Title + "</h3><p>" + p2Desc + "</p></div>"; /* Add the second project card with title and description */
-  html += "<div class='preview-project-card'><h3>" + p3Title + "</h3><p>" + p3Desc + "</p></div>"; /* Add the third project card with title and description */
-  if (company !== "") { /* Check if the company name value is not empty */
-    html += "<h2 class='preview-section-title'>Experience</h2>"; /* Add the Experience section heading */
-    html += "<div class='preview-project-card'><h3>" + company + " (" + expDuration + ")</h3><strong>" + expRole + "</strong><p>" + work + "</p></div>"; /* Add the experience block */
-  } /* End of experience conditional block */
-  if (certsRaw !== "") { /* Check if the certifications textarea value is not empty */
-    html += "<h2 class='preview-section-title'>Certifications</h2>"; /* Add the Certifications section heading */
-    html += "<ul>"; /* Add the opening tag for certifications list */
-    var certsArray = certsRaw.split("\n"); /* Split the certifications by new line character to get array */
-    certsArray.forEach(function(cert) { /* Loop through each certification using forEach */
-      if (cert !== "") { /* Check if the certification line is not empty */
-        html += "<li>" + cert + "</li>"; /* Wrap each certification line inside a list item tag */
-      } /* End of empty line check */
-    }); /* End of certifications loop */
-    html += "</ul>"; /* Add the closing tag for certifications list */
-  } /* End of certifications conditional block */
-  return html; /* Return the generated portfolio HTML string */
-} /* End of generatePortfolioHTML function */
-document.getElementById("previewBtn").addEventListener("click", function() { /* Listen for click event on the preview button */
-  var name = document.getElementById("fullName").value; /* Retrieve the value from the Full Name field */
-  if (name === "") { /* Check if the Full Name field is completely empty */
-    alert("Please enter your name first"); /* Display warning alert popup asking for name entry */
-    return; /* Stop further execution of the click handler function */
-  } /* End of name verification conditional block */
-  var htmlContent = generatePortfolioHTML(); /* Call function to generate the HTML portfolio string */
-  var previewDiv = document.getElementById("preview"); /* Retrieve the preview container element */
-  previewDiv.innerHTML = htmlContent; /* Set the innerHTML of preview container to generated portfolio */
-  previewDiv.className = "show"; /* Add the show class to make the preview container visible */
-}); /* End of preview button click listener */
-document.getElementById("downloadBtn").addEventListener("click", function() { /* Listen for click event on the download button */
-  var name = document.getElementById("fullName").value; /* Retrieve the value from the Full Name field */
-  if (name === "") { /* Check if the Full Name field is completely empty */
-    alert("Please enter your name first"); /* Display warning alert popup asking for name entry */
-    return; /* Stop further execution of the click handler function */
-  } /* End of name verification conditional block */
-  var htmlContent = generatePortfolioHTML(); /* Call function to generate the HTML portfolio string */
-  var fullHtml = ""; /* Initialize the full HTML page string variable */
-  fullHtml += "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>" + name + " Portfolio</title>"; /* Open HTML document structure and head with title */
-  fullHtml += "<style>"; /* Open style tag to hold standard portfolio display rules */
-  fullHtml += "body { font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; padding: 20px; color: #333333; }"; /* Define basic body font and margin centering */
-  fullHtml += ".preview-name { font-size: 26px; font-weight: bold; margin-bottom: 5px; color: #111111; }"; /* Define name header styling properties */
-  fullHtml += ".preview-role { font-size: 18px; color: #666666; margin-bottom: 10px; }"; /* Define job role text color and margins */
-  fullHtml += ".preview-contact { font-size: 13px; color: #777777; margin-bottom: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; }"; /* Define contact info row divider line */
-  fullHtml += ".preview-section-title { font-size: 18px; border-bottom: 2px solid #cccccc; padding-bottom: 4px; margin-top: 20px; margin-bottom: 10px; color: #222222; font-weight: bold; }"; /* Define section divider underlines */
-  fullHtml += ".preview-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }"; /* Define layout style for list of skill tags */
-  fullHtml += ".preview-skill-badge { background-color: #e2e8f0; color: #4a5568; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold; display: inline-block; }"; /* Define individual pill-like skill badges */
-  fullHtml += ".preview-project-card { background-color: #f3f4f6; padding: 12px; border-radius: 6px; margin-bottom: 10px; border: 1px solid #e5e7eb; }"; /* Define container box for projects */
-  fullHtml += "</style></head><body>"; /* Close style and head tag structures and open body */
-  fullHtml += htmlContent; /* Append the dynamic portfolio content to the body */
-  fullHtml += "</body></html>"; /* Close the body and html structures */
-  var blob = new Blob([fullHtml], { type: "text/html" }); /* Create a new Blob file object with HTML content */
-  var url = URL.createObjectURL(blob); /* Create a browser resource URL for the Blob file */
-  var link = document.createElement("a"); /* Create a temporary anchor element dynamically */
-  link.href = url; /* Link the anchor's target href to our Blob URL */
-  link.download = name + "-portfolio.html"; /* Set the default file name for downloaded document */
-  link.click(); /* Programmatically click the anchor link to launch file download */
-}); /* End of download button click listener */
+// ============================================
+// STEP 1 - READ ALL FORM VALUES
+// ============================================
+
+// This function reads what the user typed in any input box
+function read(id) {
+  return document.getElementById(id).value;
+}
+
+// ============================================
+// STEP 2 - BUILD PORTFOLIO HTML
+// ============================================
+
+// This function collects all details and makes a portfolio page
+function buildPortfolio() {
+
+  // Read personal details from the form
+  var name = read("fullName");
+  var role = read("jobRole");
+  var email = read("email");
+  var phone = read("phone");
+  var city = read("city");
+  var linkedin = read("linkedinUrl");
+  var github = read("githubUrl");
+  var about = read("aboutMe");
+
+  // Read education details
+  var degree = read("degree");
+  var college = read("college");
+  var year = read("passingYear");
+  var cgpa = read("cgpaOrPercentage");
+
+  // Read skills and split by comma into a list
+  // Example: "HTML, CSS, JS" becomes ["HTML", "CSS", "JS"]
+  var skillsList = read("skills").split(",");
+
+  // Read project details
+  var p1title = read("project1Title");
+  var p1desc = read("project1Desc");
+  var p2title = read("project2Title");
+  var p2desc = read("project2Desc");
+  var p3title = read("project3Title");
+  var p3desc = read("project3Desc");
+
+  // Read experience details
+  var company = read("companyName");
+  var exrole = read("experienceRole");
+  var duration = read("experienceDuration");
+  var work = read("workDone");
+
+  // Read certifications
+  var certs = read("certifications");
+
+  // ============================================
+  // START BUILDING THE HTML STRING
+  // ============================================
+
+  // Start with an empty string
+  var html = "";
+
+  // Add name as big heading
+  html = html + "<h1>" + name + "</h1>";
+
+  // Add job role below name
+  html = html + "<p>" + role + "</p>";
+
+  // Add contact details in one line
+  html = html + "<p>" + email + " | " + phone + " | " + city + "</p>";
+
+  // Add LinkedIn and GitHub links
+  html = html + "<p>LinkedIn: " + linkedin + " | GitHub: " + github + "</p>";
+
+  // Add a divider line
+  html = html + "<hr>";
+
+  // Add About Me section
+  html = html + "<h2>About Me</h2>";
+  html = html + "<p>" + about + "</p>";
+
+  // Add Education section
+  html = html + "<h2>Education</h2>";
+  html = html + "<p>" + degree + " from " + college + "</p>";
+  html = html + "<p>Year: " + year + " | CGPA: " + cgpa + "</p>";
+
+  // Add Skills section
+  html = html + "<h2>Skills</h2>";
+
+  // Loop through each skill and add it as a small box
+  skillsList.forEach(function (skill) {
+    html = html + "<span style='background:#eee; padding:4px 10px; border-radius:10px; margin:4px; display:inline-block;'>" + skill + "</span>";
+  });
+
+  // Add Projects section
+  html = html + "<h2>Projects</h2>";
+
+  // Add project 1
+  html = html + "<div style='background:#f5f5f5; padding:10px; margin-bottom:10px; border-radius:6px;'>";
+  html = html + "<strong>" + p1title + "</strong>";
+  html = html + "<p>" + p1desc + "</p>";
+  html = html + "</div>";
+
+  // Add project 2
+  html = html + "<div style='background:#f5f5f5; padding:10px; margin-bottom:10px; border-radius:6px;'>";
+  html = html + "<strong>" + p2title + "</strong>";
+  html = html + "<p>" + p2desc + "</p>";
+  html = html + "</div>";
+
+  // Add project 3
+  html = html + "<div style='background:#f5f5f5; padding:10px; margin-bottom:10px; border-radius:6px;'>";
+  html = html + "<strong>" + p3title + "</strong>";
+  html = html + "<p>" + p3desc + "</p>";
+  html = html + "</div>";
+
+  // Add Experience section ONLY if company name is filled
+  if (company !== "") {
+    html = html + "<h2>Experience</h2>";
+    html = html + "<div style='background:#f5f5f5; padding:10px; border-radius:6px;'>";
+    html = html + "<strong>" + company + " - " + exrole + "</strong>";
+    html = html + "<p>Duration: " + duration + "</p>";
+    html = html + "<p>" + work + "</p>";
+    html = html + "</div>";
+  }
+
+  // Add Certifications ONLY if something is typed
+  if (certs !== "") {
+    html = html + "<h2>Certifications</h2>";
+    html = html + "<ul>";
+
+    // Split certifications by new line and add each one
+    var certList = certs.split("\n");
+    certList.forEach(function (cert) {
+      if (cert !== "") {
+        html = html + "<li>" + cert + "</li>";
+      }
+    });
+
+    html = html + "</ul>";
+  }
+
+  // Return the finished HTML string
+  return html;
+}
+
+// ============================================
+// STEP 3 - PREVIEW BUTTON
+// ============================================
+
+// When user clicks Preview button, show portfolio on screen
+document.getElementById("previewBtn").addEventListener("click", function () {
+
+  // Check if name is empty
+  if (read("fullName") === "") {
+    alert("Please enter your name first!");
+    return;
+  }
+
+  // Build the portfolio HTML
+  var result = buildPortfolio();
+
+  // Put the HTML inside the preview box on screen
+  document.getElementById("preview").innerHTML = result;
+
+  // Make the preview box visible
+  document.getElementById("preview").className = "show";
+
+});
+
+// ============================================
+// STEP 4 - DOWNLOAD BUTTON
+// ============================================
+
+// When user clicks Download button, save portfolio as HTML file
+document.getElementById("downloadBtn").addEventListener("click", function () {
+
+  // Check if name is empty
+  if (read("fullName") === "") {
+    alert("Please enter your name first!");
+    return;
+  }
+
+  // Build the portfolio HTML
+  var result = buildPortfolio();
+
+  // Wrap it in a full HTML page so it works when opened in browser
+  var fullPage = "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>My Portfolio</title>";
+  fullPage = fullPage + "<style>";
+  fullPage = fullPage + "body { font-family: Arial; max-width: 700px; margin: 0 auto; padding: 20px; }";
+  fullPage = fullPage + "h1 { font-size: 26px; }";
+  fullPage = fullPage + "h2 { border-bottom: 1px solid #ccc; padding-bottom: 4px; margin-top: 20px; }";
+  fullPage = fullPage + "hr { margin: 15px 0; }";
+  fullPage = fullPage + "</style>";
+  fullPage = fullPage + "</head><body>";
+  fullPage = fullPage + result;
+  fullPage = fullPage + "</body></html>";
+
+  // Convert the HTML string into a downloadable file
+  var blob = new Blob([fullPage], { type: "text/html" });
+
+  // Create a temporary download link
+  var link = document.createElement("a");
+
+  // Point the link to the file
+  link.href = URL.createObjectURL(blob);
+
+  // Set the file name
+  link.download = read("fullName") + "-portfolio.html";
+
+  // Click the link automatically to start download
+  link.click();
+
+});
