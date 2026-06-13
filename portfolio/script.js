@@ -15,48 +15,48 @@ function read(id) {
 function buildPortfolio() {
 
   // Read personal details from the form
-  var name = read("fullName");
-  var role = read("jobRole");
-  var email = read("email");
-  var phone = read("phone");
-  var city = read("city");
-  var linkedin = read("linkedinUrl");
-  var github = read("githubUrl");
-  var about = read("aboutMe");
+  let name = read("fullName");
+  let role = read("jobRole");
+  let email = read("email");
+  let phone = read("phone");
+  let city = read("city");
+  let linkedin = read("linkedinUrl");
+  let github = read("githubUrl");
+  let about = read("aboutMe");
 
   // Read education details
-  var degree = read("degree");
-  var college = read("college");
-  var year = read("passingYear");
-  var cgpa = read("cgpaOrPercentage");
+  let degree = read("degree");
+  let college = read("college");
+  let year = read("passingYear");
+  let cgpa = read("cgpaOrPercentage");
 
   // Read skills and split by comma into a list
   // Example: "HTML, CSS, JS" becomes ["HTML", "CSS", "JS"]
-  var skillsList = read("skills").split(",");
+  let skillsList = read("skills").split(",");
 
   // Read project details
-  var p1title = read("project1Title");
-  var p1desc = read("project1Desc");
-  var p2title = read("project2Title");
-  var p2desc = read("project2Desc");
-  var p3title = read("project3Title");
-  var p3desc = read("project3Desc");
+  let p1title = read("project1Title");
+  let p1desc = read("project1Desc");
+  let p2title = read("project2Title");
+  let p2desc = read("project2Desc");
+  let p3title = read("project3Title");
+  let p3desc = read("project3Desc");
 
   // Read experience details
-  var company = read("companyName");
-  var exrole = read("experienceRole");
-  var duration = read("experienceDuration");
-  var work = read("workDone");
+  let company = read("companyName");
+  let exrole = read("experienceRole");
+  let duration = read("experienceDuration");
+  let work = read("workDone");
 
   // Read certifications
-  var certs = read("certifications");
+  let certs = read("certifications");
 
   // ============================================
   // START BUILDING THE HTML STRING
   // ============================================
 
   // Start with an empty string
-  var html = "";
+  let html = "";
 
   // Add name as big heading
   html = html + "<h1>" + name + "</h1>";
@@ -155,7 +155,7 @@ document.getElementById("previewBtn").addEventListener("click", function () {
   }
 
   // Build the portfolio HTML
-  var result = buildPortfolio();
+  let result = buildPortfolio();
 
   // Put the HTML inside the preview box on screen
   document.getElementById("preview").innerHTML = result;
@@ -179,10 +179,10 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
   }
 
   // Build the portfolio HTML
-  var result = buildPortfolio();
+  let result = buildPortfolio();
 
   // Wrap it in a full HTML page so it works when opened in browser
-  var fullPage = "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>My Portfolio</title>";
+  let fullPage = "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>My Portfolio</title>";
   fullPage = fullPage + "<style>";
   fullPage = fullPage + "body { font-family: Arial; max-width: 700px; margin: 0 auto; padding: 20px; }";
   fullPage = fullPage + "h1 { font-size: 26px; }";
@@ -194,10 +194,10 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
   fullPage = fullPage + "</body></html>";
 
   // Convert the HTML string into a downloadable file
-  var blob = new Blob([fullPage], { type: "text/html" });
+  let blob = new Blob([fullPage], { type: "text/html" });
 
   // Create a temporary download link
-  var link = document.createElement("a");
+  let link = document.createElement("a");
 
   // Point the link to the file
   link.href = URL.createObjectURL(blob);
