@@ -232,9 +232,8 @@ function handleEnterKey(event) {
 }
 
 
-// =====================================================
 // Run when the page finishes loading
-// =====================================================
+//Run
 window.onload = function() {
   // apply saved theme from localStorage
   loadSavedTheme();

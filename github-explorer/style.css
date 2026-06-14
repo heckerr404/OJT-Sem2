@@ -292,7 +292,7 @@ body.dark-mode #repo-list li {
 body.dark-mode .repo-name {
   color: skyblue;
 }
-
+/* repo */
 .repo-name:hover {
   text-decoration: underline;
 }
