@@ -1,0 +1,161 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #0d0d0d;
+  color: #eee;
+  padding: 40px 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 32px;
+}
+
+/* === SUMMARY === */
+#summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.summary-box {
+  background: #161616;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.box-label {
+  color: #666;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.box-amount {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+}
+
+.box-amount.income  { color: #3ecf8e; }
+.box-amount.expense { color: #ef4444; }
+
+/* === FORM === */
+#form-card {
+  background: #161616;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 32px;
+}
+
+#form-card input,
+#form-card select {
+  width: 100%;
+  background: #111;
+  border: 1px solid #2a2a2a;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-family: 'Inter', Arial, sans-serif;
+  margin-bottom: 12px;
+}
+
+#form-card input:focus,
+#form-card select:focus {
+  outline: none;
+  border-color: #4f6ef7;
+}
+
+#form-card select option { background: #161616; }
+
+#error-msg {
+  color: #ef4444;
+  font-size: 0.82rem;
+  margin-bottom: 12px;
+  min-height: 18px;
+}
+
+#form-card button {
+  width: 100%;
+  padding: 12px;
+  background: #4f6ef7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: 'Inter', Arial, sans-serif;
+  cursor: pointer;
+}
+
+#form-card button:hover { background: #3a55d4; }
+
+/* === LIST === */
+#list-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+
+.tx-item {
+  background: #161616;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tx-item.income  { border-left: 3px solid #3ecf8e; }
+.tx-item.expense { border-left: 3px solid #ef4444; }
+
+.tx-desc { flex: 1; font-size: 0.92rem; color: #ddd; }
+
+.tx-amount {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.tx-item.income  .tx-amount { color: #3ecf8e; }
+.tx-item.expense .tx-amount { color: #ef4444; }
+
+.tx-delete {
+  background: none;
+  border: none;
+  color: #444;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0 0 0 8px;
+}
+
+.tx-delete:hover { color: #ef4444; }
+
+@media (max-width: 500px) {
+  #summary { grid-template-columns: 1fr; }
+}
+
+/* Light mode */
+body.light h1                     { color: #111; }
+body.light .summary-box           { background: white; border-color: #ddd; }
+body.light .box-amount            { color: #111; }
+body.light #form-card             { background: white; border-color: #ddd; }
+body.light #form-card input,
+body.light #form-card select      { background: #f5f5f5; border-color: #ccc; color: #111; }
+body.light .tx-item               { background: white; }
+body.light .tx-desc               { color: #333; }

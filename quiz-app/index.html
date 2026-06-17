@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../topbar.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- TOP BAR: Back + Theme Toggle -->
+  <div id="top-bar">
+    <a href="../index.html" id="back-btn">&#8592; Back</a>
+    <button id="theme-btn" onclick="toggleTheme()">&#9790; Dark</button>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div id="quiz-card" class="card">
+    <div id="card-top">
+      <span id="question-counter">Question 1 of 10</span>
+      <span id="score-display">Score: 0</span>
+    </div>
+    <div id="progress-bar-bg">
+      <div id="progress-bar"></div>
+    </div>
+    <p id="question-text">Question goes here</p>
+    <div id="options"></div>
+  </div>
+
+  <!-- RESULTS SCREEN -->
+  <div id="results-card" class="card" style="display:none;">
+    <p id="results-label">Quiz Complete!</p>
+    <div id="final-score">0</div>
+    <p id="final-message">You scored 0 out of 10</p>
+    <button id="restart-btn" onclick="restartQuiz()">Restart Quiz</button>
+  </div>
+
+  <script src="../theme.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

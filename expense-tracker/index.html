@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../topbar.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- TOP BAR: Back + Theme Toggle -->
+  <div id="top-bar">
+    <a href="../index.html" id="back-btn">&#8592; Back</a>
+    <button id="theme-btn" onclick="toggleTheme()">&#9790; Dark</button>
+  </div>
+
+  <h1>Expense Tracker</h1>
+
+  <!-- SUMMARY BOXES -->
+  <div id="summary">
+    <div class="summary-box">
+      <p class="box-label">Total Balance</p>
+      <p class="box-amount" id="balance">₹0.00</p>
+    </div>
+    <div class="summary-box">
+      <p class="box-label">Total Income</p>
+      <p class="box-amount income" id="total-income">₹0.00</p>
+    </div>
+    <div class="summary-box">
+      <p class="box-label">Total Expenses</p>
+      <p class="box-amount expense" id="total-expense">₹0.00</p>
+    </div>
+  </div>
+
+  <!-- ADD TRANSACTION FORM -->
+  <div id="form-card">
+    <input type="text" id="desc" placeholder="Description (e.g. Salary, Rent...)" />
+    <input type="number" id="amount" placeholder="Amount (e.g. 500)" min="0" />
+    <select id="type">
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+    <p id="error-msg"></p>
+    <button onclick="addTransaction()">+ Add Transaction</button>
+  </div>
+
+  <!-- TRANSACTION LIST -->
+  <h2 id="list-title">Transactions</h2>
+  <div id="transaction-list"></div>
+
+  <script src="../theme.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

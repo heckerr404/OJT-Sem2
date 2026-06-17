@@ -2,134 +2,283 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevDynasty - Ritesh Yadav Portfolio</title>
-    <!-- Link to the CSS stylesheet -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Agency Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-    <!-- Header containing site title and theme button -->
-    <header>
-        <div class="header-container">
-            
-            <span class="logo">Dev<span>Dynasty</span></span>
-            <!-- Simple button to toggle dark mode -->
-            <button id="theme-btn">Dark Mode</button>
+  <div id="landing-page">
+
+    <nav id="landing-nav">
+      <div class="landing-nav-logo">
+        <span class="logo-star">&#10033;</span>
+        <span class="logo-text">TEAM AGENCY</span>
+      </div>
+      <ul class="landing-nav-links">
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <button id="enter-btn" onclick="enterSite()">Enter Site &nbsp;&#8599;</button>
+    </nav>
+    
+
+    <div class="hero-body">
+
+      <div class="hero-left">
+        <h1 class="hero-title">
+          TEAM AGENCY
+          <span class="hero-title-accent">&#8725;&nbsp;&#8725;</span>
+          <br />
+          <span class="hero-title-blue">PORTFOLIO</span>
+        </h1>
+        <p class="hero-tagline">
+          Six students. Six projects.<br />
+          One team building digital experiences<br />
+          that make an impact.
+        </p>
+        <div class="hero-buttons">
+          <button class="hero-btn-primary" onclick="enterSite()">View Projects &nbsp;&#8599;</button>
+          <button class="hero-btn-secondary" onclick="enterSite()">Meet The Team</button>
         </div>
-    </header>
+      </div>
 
-    <!-- Main content area -->
-    <main>
 
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-list">
-                <span class="skill-tag">HTML5</span>
-                <span class="skill-tag">CSS3</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Responsive Design</span>
-                <span class="skill-tag">Git & GitHub</span>
-                <span class="skill-tag">UI/UX Basics</span>
+
+    </div>
+
+  </div>
+
+
+  <div id="main-page" style="display:none;">
+
+    <nav id="navbar">
+      <div class="nav-logo">Team Agency</div>
+      <button id="theme-btn" onclick="toggleTheme()">&#127769; Dark Mode</button>
+    </nav>
+
+    <div id="page-body">
+
+      <aside id="sidebar">
+
+        <div id="sidebar-header">
+          <div id="sidebar-logo">
+            <span id="sidebar-logo-text">Team Agency</span>
+          </div>
+          <button id="collapse-btn" onclick="collapseSidebar()" title="Collapse sidebar">&#8249;</button>
+        </div>
+
+        <nav id="sidebar-nav">
+          <ul>
+            <li>
+              <a href="#" class="active" id="link-portfolio"
+                onclick="showSection('portfolio'); setActive('link-portfolio'); return false;">
+                <span class="nav-label">Team Portfolio</span>
+              </a>
+            </li>
+            <li>
+              <a href="../quiz-app/index.html">
+                <span class="nav-label">Interactive Quiz App</span>
+              </a>
+            </li>
+            <li>
+              <a href="../expense-tracker/index.html">
+                <span class="nav-label">Expense Tracker</span>
+              </a>
+            </li>
+            <li>
+              <a href="../news-feed/index.html">
+                <span class="nav-label">Live News Feed</span>
+              </a>
+            </li>
+            <li>
+              <a href="../kanban-board/index.html">
+                <span class="nav-label">Kanban Task Board</span>
+              </a>
+            </li>
+            <li>
+              <a href="github-explorer/index.html">
+                <span class="nav-label">GitHub Explorer</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+      </aside>
+
+      <main id="main-content">
+
+        <div id="section-portfolio">
+
+          <div id="about-section">
+            <h2>About This Project</h2>
+            <p>
+              This is a College capstone project built by a team of 6 students using pure
+              HTML, CSS, and JavaScript &mdash; no frameworks or libraries.
+              Each member independently built one full project demonstrating key web skills
+              like DOM manipulation, state management, Fetch API, and localStorage.
+              All six projects are connected through a shared dashboard with sidebar navigation
+              and managed through Git branches for collaborative version control.
+            </p>
+          </div>
+
+          <h2>Meet Our Team</h2>
+
+          <div id="team-grid">
+
+            <div class="student-card">
+              <div class="card-header">RY</div>
+              <h3>Ritesh Yadav</h3>
+              <p><strong>Project:</strong> Team Agency Portfolio</p>
+              <p><strong>Focus:</strong> DOM manipulation, localStorage, form validation</p>
+              <p><strong>Branch:</strong> <span class="branch-tag">main-ritesh</span></p>
+              <a href="https://github.com/heckerr404" target="_blank" class="gh-link">View on GitHub</a>
             </div>
-        </section>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <h3>Portfolio</h3>
-                    <p>An interactive personal portfolio page to display details, skills, and projects.</p>
-                    <a href="portfolio/index.html">View Project &rarr;</a>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <h3>Quiz Game</h3>
-                    <p>An interactive quiz game evaluating basic HTML, CSS, and general trivia knowledge.</p>
-                    <a href="quiz/index.html">View Project &rarr;</a>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <h3>Expense Tracker</h3>
-                    <p>A simple finance tool to record earnings and expenses with balance tracking.</p>
-                    <a href="expense-tracker/index.html">View Project &rarr;</a>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card">
-                    <h3>News Feed</h3>
-                    <p>A simple news application to fetch, display, and filter recent article feeds.</p>
-                    <a href="news-feed/index.html">View Project &rarr;</a>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="project-card">
-                    <h3>GitHub Explorer</h3>
-                    <p>A developer utility to search github users and browse their repositories.</p>
-                    <a href="github-explorer/index.html">View Project &rarr;</a>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="project-card">
-                    <h3>Kanban Board</h3>
-                    <p>A visual project planning board to manage tasks, to-do lists, and progress cards.</p>
-                    <a href="kanban/index.html">View Project &rarr;</a>
-                </div>
+            <div class="student-card">
+              <div class="card-header">DS</div>
+              <h3>Dhruv Sharma</h3>
+              <p><strong>Project:</strong> Interactive Quiz App</p>
+              <p><strong>Focus:</strong> State logic, score tracking, UI feedback</p>
+              <p><strong>Branch:</strong> <span class="branch-tag">main-dhruv</span></p>
+              <a href="https://github.com/Dhruv1357" target="_blank" class="gh-link">View on GitHub</a>
             </div>
-        </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact</h2>
-
-            <div class="form-container">
-                <form id="contact-form">
-                    <!-- Name input field -->
-                    <div class="form-group">
-                        <label for="user-name">Name</label>
-                        <input type="text" id="user-name" placeholder="Your name">
-                        <span id="name-error" class="error-message">Please enter your name.</span>
-                    </div>
-
-                    <!-- Email input field -->
-                    <div class="form-group">
-                        <label for="user-email">Email</label>
-                        <input type="email" id="user-email" placeholder="you@example.com">
-                        <span id="email-error" class="error-message">Please enter your email address.</span>
-                    </div>
-
-                    <!-- Message input field -->
-                    <div class="form-group">
-                        <label for="user-message">Message</label>
-                        <textarea id="user-message" rows="5" placeholder="Write your message here..."></textarea>
-                        <span id="message-error" class="error-message">Please enter a message.</span>
-                    </div>
-
-                    <!-- Success Message Alert -->
-                    <div id="form-success" class="success-message">Message sent successfully!</div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" id="submit-btn">Send Message</button>
-                </form>
+            <div class="student-card">
+              <div class="card-header">SP</div>
+              <h3>Soham Patel</h3>
+              <p><strong>Project:</strong> Expense Tracker</p>
+              <p><strong>Focus:</strong> CRUD operations, localStorage, array methods</p>
+              <p><strong>Branch:</strong> <span class="branch-tag">main-soham</span></p>
+              <a href="https://github.com/soham598-12" target="_blank" class="gh-link">View on GitHub</a>
             </div>
-        </section>
 
-    </main>
+            <div class="student-card">
+              <div class="card-header">VK</div>
+              <h3>Vikash</h3>
+              <p><strong>Project:</strong> Live News Feed</p>
+              <p><strong>Focus:</strong> Async/await, Fetch API, NewsAPI integration</p>
+              <p><strong>Branch:</strong> <span class="branch-tag">main-vikash</span></p>
+              <p class="gh-link-text">GitHub: Coming soon</p>
+            </div>
 
-    <!-- Footer section -->
-    <footer>
-        <p>&copy; 2026 Ritesh Yadav. All rights reserved.</p>
+            <div class="student-card">
+              <div class="card-header">SM</div>
+              <h3>Sumeet</h3>
+              <p><strong>Project:</strong> Kanban Board</p>
+              <p><strong>Focus:</strong> Drag and drop, complex state</p>
+              <p><strong>Branch:</strong> <span class="branch-tag">main-sumeet</span></p>
+              <a href="https://github.com/sumeetsot25-boop" target="_blank" class="gh-link">View on GitHub</a>
+            </div>
+
+          </div>
+
+          <div id="tech-stack-section">
+            <h2>Tech Stack We Used</h2>
+            <div id="tech-grid">
+
+              <div class="tech-card">
+                <div class="tech-name">HTML</div>
+                <p>Structure and content of all pages</p>
+              </div>
+
+              <div class="tech-card">
+                <div class="tech-name">CSS</div>
+                <p>Styling, layout, responsiveness and themes</p>
+              </div>
+
+              <div class="tech-card">
+                <div class="tech-name">JavaScript</div>
+                <p>Logic, interactivity, APIs and localStorage</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div id="timeline-section">
+            <h2>Project Timeline</h2>
+            <div id="timeline-list">
+
+              <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <div class="timeline-text">
+                  <strong>Planning &amp; Team Setup</strong>
+                  <p>Decided roles, branches, and project structure as a group</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <div class="timeline-text">
+                  <strong>Individual Development</strong>
+                  <p>Each member built their assigned project on their own Git branch</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-number">3</div>
+                <div class="timeline-text">
+                  <strong>Integration &amp; Testing</strong>
+                  <p>Combined all projects into one dashboard with sidebar navigation</p>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-number">4</div>
+                <div class="timeline-text">
+                  <strong>Final Review &amp; Presentation</strong>
+                  <p>Polished UI, fixed bugs, and prepared for final viva presentation</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div id="contact-section">
+            <h2>Contact Us</h2>
+            <form id="contact-form" onsubmit="submitForm(event)">
+
+              <label for="c-name">Name:</label>
+              <input type="text" id="c-name" placeholder="Your name" />
+
+              <label for="c-email">Email:</label>
+              <input type="email" id="c-email" placeholder="Your email" />
+
+              <label for="c-message">Message:</label>
+              <textarea id="c-message" placeholder="Write your message here..." rows="4"></textarea>
+
+              <button type="submit">Submit</button>
+
+              <p id="form-msg"></p>
+
+            </form>
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+
+    <footer id="site-footer">
+      <p>&copy; 2026 Team Agency &mdash; School Capstone Project</p>
+      <div id="footer-links">
+        <a href="https://github.com/heckerr404" target="_blank">Ritesh</a>
+        <a href="https://github.com/Dhruv1357" target="_blank">Dhruv</a>
+        <a href="https://github.com/soham598-12" target="_blank">Soham</a>
+        <span class="footer-coming-soon">Vikash (Coming soon)</span>
+        <a href="https://github.com/sumeetsot25-boop" target="_blank">Sumeet</a>
+      </div>
     </footer>
 
-    <!-- Link to the Javascript script file -->
-    <script src="script.js"></script>
+  </div>
+
+
+  <script src="script.js"></script>
 
 </body>
 

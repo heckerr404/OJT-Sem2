@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GitHub Developer Explorer</title>
   <!-- link to our stylesheet -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../topbar.css" />
 </head>
+
 <body>
 
   <!-- =====================================================
        NAVBAR
   ====================================================== -->
   <nav id="navbar">
-    <div class="nav-logo">&#128270; GitHub Explorer</div>
+    <div class="nav-logo"><a href="../index.html"
+        style="color: inherit; text-decoration: none; margin-right: 12px;">&larr;</a>GitHub Explorer</div>
     <!-- dark/light mode toggle -->
     <button id="theme-btn" onclick="toggleTheme()">&#127769; Dark Mode</button>
   </nav>
@@ -75,7 +79,9 @@
   <!-- end main-wrap -->
 
   <!-- link script at bottom so HTML loads first -->
+  <script src="../theme.js"></script>
   <script src="script.js"></script>
 
 </body>
+
 </html>

@@ -1,81 +1,101 @@
-// --- 1. Light and Dark Mode Toggle ---
-// Get the button element from the HTML
-let themeBtn = document.getElementById("theme-btn");
+// script.js — Team Agency Portfolio
+// Uses only topics from college JS syllabus
 
-// Function to switch between dark and light themes
+// ─── Helper ────────────────────────────────────────────────────────────────
+
+// Returns an element from the page using its id
+const getElement = (id) => document.getElementById(id);
+
+// ─── Landing Page ───────────────────────────────────────────────────────────
+
+// Hides the landing page and shows the main dashboard
+function enterSite() {
+  getElement("landing-page").style.display = "none";
+  getElement("main-page").style.display = "block";
+}
+
+// ─── Section Navigation ─────────────────────────────────────────────────────
+
+// Shows a specific content section based on the section name passed in
+function showSection(sectionName) {
+  if (sectionName === "portfolio") {
+    getElement("section-portfolio").style.display = "block";
+  }
+}
+
+// Removes "active" class from all sidebar links, then adds it to the clicked one
+function setActive(linkId) {
+  document.querySelectorAll("#sidebar-nav ul li a").forEach(function (link) {
+    link.classList.remove("active");
+  });
+
+  const clickedLink = getElement(linkId);
+  if (clickedLink) {
+    clickedLink.classList.add("active");
+  }
+}
+
+// ─── Sidebar ────────────────────────────────────────────────────────────────
+
+// Toggles the sidebar between open and collapsed states
+function collapseSidebar() {
+  getElement("sidebar").classList.toggle("collapsed");
+}
+
+// ─── Theme Toggle ────────────────────────────────────────────────────────────
+
+// Switches between dark and light mode, and saves the user's choice to localStorage
 function toggleTheme() {
-    let bodyElement = document.body;
-    
-    // Toggle the class "dark" on the body element
-    bodyElement.classList.toggle("dark");
-    
-    // Change the text inside the button based on the current theme
-    if (bodyElement.classList.contains("dark")) {
-        themeBtn.textContent = "Light Mode";
-    } else {
-        themeBtn.textContent = "Dark Mode";
-    }
+  const isDark = document.body.classList.toggle("dark-mode");
+  getElement("theme-btn").textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
-// When the user clicks the theme button, run the toggleTheme function
-themeBtn.onclick = toggleTheme;
-
-
-// --- 2. Contact Form Validation ---
-// Get the form element and the success message container
-let contactForm = document.getElementById("contact-form");
-let successMsg = document.getElementById("form-success");
-
-// Function to check if the input fields are filled out correctly
-function validateForm(event) {
-    // Prevent the webpage from reloading when the submit button is clicked
-    event.preventDefault();
-
-    // Get the input fields
-    let nameInput = document.getElementById("user-name");
-    let emailInput = document.getElementById("user-email");
-    let messageInput = document.getElementById("user-message");
-
-    // Get the error message text blocks
-    let nameError = document.getElementById("name-error");
-    let emailError = document.getElementById("email-error");
-    let messageError = document.getElementById("message-error");
-
-    // Assume the form is correct to start with
-    let isValid = true;
-
-    // Check Name: if empty, show error, else hide it
-    if (nameInput.value.trim() === "") {
-        nameError.style.display = "block"; // Show error text
-        isValid = false;
-    } else {
-        nameError.style.display = "none";  // Hide error text
-    }
-
-    // Check Email: if empty, show error, else hide it
-    if (emailInput.value.trim() === "") {
-        emailError.style.display = "block";
-        isValid = false;
-    } else {
-        emailError.style.display = "none";
-    }
-
-    // Check Message: if empty, show error, else hide it
-    if (messageInput.value.trim() === "") {
-        messageError.style.display = "block";
-        isValid = false;
-    } else {
-        messageError.style.display = "none";
-    }
-
-    // If all inputs are filled in, show the green success box and reset the form
-    if (isValid) {
-        successMsg.style.display = "block";
-        contactForm.reset(); // Clear all fields
-    } else {
-        successMsg.style.display = "none";
-    }
+// Reads the saved theme from localStorage and applies it when the page loads
+function loadSavedTheme() {
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    getElement("theme-btn").textContent = "☀️ Light Mode";
+  }
 }
 
-// When the form is submitted, run the validate form function
-contactForm.onsubmit = validateForm;
+// ─── Contact Form ────────────────────────────────────────────────────────────
+
+// Validates the contact form fields and shows a success or error message
+function submitForm(event) {
+  event.preventDefault(); // Stop the page from refreshing on form submit
+
+  const nameField    = getElement("c-name");
+  const emailField   = getElement("c-email");
+  const messageField = getElement("c-message");
+  const messageBox   = getElement("form-msg");
+
+  // Check each field — show an error and stop if any field is empty
+  if (!nameField.value.trim()) {
+    messageBox.textContent = "Please enter your name.";
+    messageBox.style.color = "tomato";
+    return;
+  }
+  if (!emailField.value.trim()) {
+    messageBox.textContent = "Please enter your email.";
+    messageBox.style.color = "tomato";
+    return;
+  }
+  if (!messageField.value.trim()) {
+    messageBox.textContent = "Please write a message.";
+    messageBox.style.color = "tomato";
+    return;
+  }
+
+  // All fields valid — show success and reset the form
+  messageBox.textContent = "Thank you! Your message has been received.";
+  messageBox.style.color = "seagreen";
+  nameField.value = "";
+  emailField.value = "";
+  messageField.value = "";
+}
+
+// ─── Init ────────────────────────────────────────────────────────────────────
+
+// Run loadSavedTheme as soon as the page finishes loading
+window.addEventListener("load", loadSavedTheme);
